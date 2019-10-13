@@ -1,0 +1,61 @@
+{
+  "name": "@gabrielkoo/json-ld-breadcrumb",
+  "version": "0.0.1",
+  "description": "Generate breadcrumb in JSON-LD format and inject into HTML",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "yarn run clean && yarn run build:commonjs && yarn run build:umd && yarn run build:umd:min",
+    "build:commonjs": "babel src --out-dir lib",
+    "build:umd": "cross-env FILE_NAME=json-ld-breadcrumb webpack",
+    "build:umd:min": "cross-env NODE_ENV=production yarn run build:umd",
+    "clean": "rimraf lib dist",
+    "lint": "eslint src --ext .js",
+    "test": "jest",
+    "coverage": "yarn test --coverage",
+    "posttest": "yarn run lint",
+    "prepublishOnly": "yarn test && yarn run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabrielkoo/json-ld-breadcrumb.git"
+  },
+  "files": [
+    "lib",
+    "src",
+    "dist"
+  ],
+  "keywords": [
+    "breadcrumb",
+    "json-ld",
+    "schema",
+    "schema-org",
+    "structured data",
+    "seo"
+  ],
+  "author": "Gabriel Koo <hi@gabrielkoo.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gabrielkoo/json-ld-breadcrumb/issues"
+  },
+  "homepage": "https://github.com/gabrielkoo/json-ld-breadcrumb#readme",
+  "depencencies": {},
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.4",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/plugin-transform-runtime": "^7.4.3",
+    "@babel/preset-env": "^7.3.4",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.4.0",
+    "coveralls": "^3.0.3",
+    "cross-env": "^5.2.0",
+    "eslint": "^5.15.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4",
+    "jest": "^24.4.0",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.2.3"
+  }
+}
